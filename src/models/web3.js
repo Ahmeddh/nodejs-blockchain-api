@@ -17,6 +17,7 @@ const getBalance = async (address) => {
   const balance = await web3.eth.getBalance(address);
   return Web3.utils.fromWei(balance, "ether");
 };
+
 module.exports = {
   getContractInstance,
   getBalance,

@@ -1,12 +1,8 @@
-// import axios from "axios";
-// import Web3 from "web3";
 const { getContractInstance, getBalance } = require("../models/web3.js");
-// Import ABI for BAYC contract
+
+// Import ABI for BAYC and Cool Cats contract
 const BAYC_ABI = require("../constants/BAYC_ABI.json");
 const COOL_CAT_ABI = require("../constants/COOL_CAT_ABI.json");
-
-// Import ABI for COOL contract
-// import COOL_CAT_ABI from "./constants/COOL_CAT_ABI.json" assert { type: "json" };
 
 //Get All BAYC Holders
 const getBaycHolders = async () => {
@@ -28,6 +24,7 @@ const getBaycHolders = async () => {
         // console.log(owner);
       }
     }
+    //return holders
     return BAYC_holders;
   } catch (error) {
     console.log(error);
@@ -53,6 +50,7 @@ const getCoolCatHolders = async () => {
         cool_cat_holders.push(owner);
       }
     }
+    //return holders
     return cool_cat_holders;
   } catch (error) {
     console.log(error);
