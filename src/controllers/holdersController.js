@@ -13,7 +13,7 @@ const getBaycHolders = async () => {
   let BAYC_holders = [];
   try {
     // Loop through all possible token IDs
-    for (let i = 0; i < 5000; i++) {
+    for (let i = 0; i < 10000; i++) {
       // Check the owner of the current token ID
       const owner = await BAYC_contract.methods.ownerOf(i).call();
       // console.log(owner);
@@ -41,7 +41,7 @@ const getCoolCatHolders = async () => {
 
   try {
     // Loop through all possible token IDs
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 9960; i++) {
       // Check the owner of the current token ID
       const owner = await COOL_CAT_contract.methods.ownerOf(i).call();
 
