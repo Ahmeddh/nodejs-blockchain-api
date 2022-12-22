@@ -3,7 +3,7 @@ const {
   // getBaycHolders,
   // getCoolCatHolders,
   getHoldersOfBoth,
-  getBalance,
+  getOwnersBalance,
 } = require("./controllers/holdersController.js");
 
 //Set the port to 5000 to avoid conflict with 3000 default port
@@ -15,6 +15,6 @@ const app = express();
 app.get("/both-holders", getHoldersOfBoth);
 
 // Endpoint to return the	Balance of an owner who owns both tokens
-app.get("/owners-balance", getBalance);
+app.get("/owners-balance", getOwnersBalance);
 
 app.listen(PORT, () => console.log("Server is running"));

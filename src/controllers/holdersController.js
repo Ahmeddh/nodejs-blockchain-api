@@ -1,6 +1,6 @@
 // import axios from "axios";
 // import Web3 from "web3";
-const { getContractInstance } = require("../models/web3.js");
+const { getContractInstance, getBalance } = require("../models/web3.js");
 // Import ABI for BAYC contract
 const BAYC_ABI = require("../constants/BAYC_ABI.json");
 const COOL_CAT_ABI = require("../constants/COOL_CAT_ABI.json");
@@ -80,10 +80,6 @@ const getHoldersOfBoth = async (req, res) => {
       message: error.message,
     });
   }
-};
-
-const getOwnersBalance = async (req, res) => {
-  console.log("Called get owner balance");
 };
 
 const ownerOfBoth = [
@@ -231,7 +227,23 @@ const ownerOfBoth = [
   "0x296df88601c8F49535F881DE73684d5e2d530a71",
 ];
 
-const getBalance = async (req, res) => {};
+const getOwnersBalance = async (req, res) => {
+  //Balance of an owner who owns both tokens.
+  try {
+    //Get the first owner balance
+    balance = await getBalance(ownerOfBoth[0]);
+
+    res.json({
+      status: "ok",
+      data: balance,
+    });
+  } catch (error) {
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
+};
 
 module.exports = {
   getOwnersBalance,
