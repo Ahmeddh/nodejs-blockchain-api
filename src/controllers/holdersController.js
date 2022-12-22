@@ -70,6 +70,7 @@ const getHoldersOfBoth = async (req, res) => {
       coolCatsHolders.includes(holder)
     );
 
+    //return response
     res.json({
       status: "ok",
       data: bothHolders,
@@ -228,11 +229,11 @@ const ownerOfBoth = [
 ];
 
 const getOwnersBalance = async (req, res) => {
-  //Balance of an owner who owns both tokens.
   try {
     //Get the first owner balance
     balance = await getBalance(ownerOfBoth[0]);
 
+    //return response
     res.json({
       status: "ok",
       data: balance,
